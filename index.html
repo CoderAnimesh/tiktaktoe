@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tic-Tac-Toe Arena (3×3 to 9×9)</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <div class="title-group">
+        <h1>Tic-Tac-Toe <span class="badge">3×3 – 9×9</span></h1>
+        <p class="subtitle">Strategic N-in-a-row against adaptive AI or local opponent</p>
+      </div>
+      <button id="soundToggle" class="icon-btn" title="Toggle sound effects" aria-label="Toggle sound effects">
+        <span id="soundIcon">🔊</span>
+      </button>
+    </header>
+
+    <section class="controls-card">
+      <div class="control-group">
+        <label for="boardSize">Grid Size</label>
+        <select id="boardSize">
+          <option value="3" selected>3 × 3</option>
+          <option value="4">4 × 4</option>
+          <option value="5">5 × 5</option>
+          <option value="6">6 × 6</option>
+          <option value="7">7 × 7</option>
+          <option value="8">8 × 8</option>
+          <option value="9">9 × 9</option>
+        </select>
+      </div>
+
+      <div class="control-group">
+        <label for="winLength">Win Streak</label>
+        <select id="winLength"></select>
+      </div>
+
+      <div class="control-group">
+        <label for="gameMode">Mode</label>
+        <select id="gameMode">
+          <option value="ai" selected>vs Computer</option>
+          <option value="pvp">2 Players (Local)</option>
+        </select>
+      </div>
+
+      <div class="control-group" id="difficultyGroup">
+        <label for="difficulty">Difficulty</label>
+        <select id="difficulty">
+          <option value="easy">Easy</option>
+          <option value="medium" selected>Medium</option>
+          <option value="hard">Hard</option>
+        </select>
+      </div>
+
+      <div class="control-group" id="playerSideGroup">
+        <label for="playerSide">Play As</label>
+        <select id="playerSide">
+          <option value="X" selected>X (First)</option>
+          <option value="O">O (Second)</option>
+        </select>
+      </div>
+    </section>
+
+    <section class="scoreboard">
+      <div class="score-card x-card" id="scoreCardX">
+        <span class="score-label" id="labelX">You (X)</span>
+        <span class="score-value" id="scoreX">0</span>
+      </div>
+      <div class="score-card draw-card">
+        <span class="score-label">Draws</span>
+        <span class="score-value" id="scoreDraw">0</span>
+      </div>
+      <div class="score-card o-card" id="scoreCardO">
+        <span class="score-label" id="labelO">Computer (O)</span>
+        <span class="score-value" id="scoreO">0</span>
+      </div>
+    </section>
+
+    <div class="status-bar" id="statusBar" role="status" aria-live="polite">
+      <span class="status-dot" id="statusDot"></span>
+      <span id="statusText">Your turn (X)</span>
+    </div>
+
+    <main class="board-wrapper">
+      <div id="board" class="board" role="grid" aria-label="Tic-Tac-Toe Board"></div>
+    </main>
+
+    <footer class="actions">
+      <button id="undoBtn" class="btn btn-secondary" disabled>Undo</button>
+      <button id="restartBtn" class="btn btn-primary">New Round</button>
+      <button id="resetScoreBtn" class="btn btn-ghost">Reset Scores</button>
+    </footer>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
+
